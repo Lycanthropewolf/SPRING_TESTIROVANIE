@@ -3,33 +3,33 @@ package com.example.spring_testirovanie.CalculatorService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class  CalculatorService {
-    public String greeting( ) {
+public class CalculatorService {
+    public String greeting() {
         return "добро пожаловать в калькулятор";
     }
 
-    public Integer  plus(Integer a, Integer b) {
-        if (a == null || b == null) {
-            throw new IllegalArgumentException("ввведите параметры");
+    public Integer plus(Integer a, Integer b) {
+        if (!exception(a, b)){
+            throw new IllegalArgumentException("ввведите параметры правильно");
         }
         return a + b;
     }
 
-    public Integer  minus(Integer a, Integer b) {
-        if (a == null || b == null) {
-            throw new IllegalArgumentException("ввведите параметры");
+    public Integer minus(Integer a, Integer b) {
+        if (!exception(a, b)){
+            throw new IllegalArgumentException("ввведите параметры правильно");
         }
         return a - b;
     }
 
-    public Integer  multiply(Integer a, Integer b) {
-        if (a == null || b == null) {
-            throw new IllegalArgumentException("ввведите параметры");
+    public Integer multiply(Integer a, Integer b) {
+        if (!exception(a, b)){
+            throw new IllegalArgumentException("ввведите параметры правильно");
         }
         return a * b;
     }
 
-    public double  divide(Integer a, Integer b) {
+    public double divide(Integer a, Integer b) {
         if (a == null || b == null) {
             throw new IllegalArgumentException("ввведите параметры");
         }
@@ -37,5 +37,10 @@ public class  CalculatorService {
             throw new IllegalArgumentException("на ноль делить нельзя");
         }
         return (double) a / b;
+    }
+
+    public boolean exception(Integer a, Integer b) {
+        if (a == null || b == null) {
+        } return true;
     }
 }
