@@ -39,4 +39,25 @@ public class CalculatorParametrizedTest {
     public static Stream<Arguments> provideParamsForTests() {
         return Stream.of(Arguments.of(8, 9), Arguments.of(5, 16));
     }
+
+    public static Stream<Arguments> provideIncorrectParams() {
+        return Stream.of(
+                Arguments.of(null, 9),
+                Arguments.of(1, null),
+                Arguments.of(null, null)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIncorrectParams")
+    public void shouldThrowIllegalArgumentException(Integer input1, Integer input2) {
+        Assertions.assertThrows(IllegalArgumentException.class, () ->
+                calculatorService.plus(input1, input2));
+        Assertions.assertThrows(IllegalArgumentException.class, () ->
+                calculatorService.minus(input1, input2));
+        Assertions.assertThrows(IllegalArgumentException.class, () ->
+                calculatorService.multiply(input1, input2));
+        Assertions.assertThrows(IllegalArgumentException.class, () ->
+                calculatorService.divide(input1, input2));
+    }
 }

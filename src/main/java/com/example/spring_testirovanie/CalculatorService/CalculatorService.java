@@ -31,7 +31,7 @@ public class CalculatorService {
         return (double) a / b;
     }
 
-    public void checkParams(Integer a, Integer b) {
+    private void checkParams(Integer a, Integer b) {
         if (a == null || b == null) {
             throw new IllegalArgumentException("Введите параметры правильно");
         }

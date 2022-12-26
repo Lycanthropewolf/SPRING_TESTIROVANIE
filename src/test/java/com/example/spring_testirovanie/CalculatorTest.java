@@ -43,9 +43,5 @@ public class CalculatorTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> calculatorService.divide(NUM_1, ILLEGAL_ARGUMENT));
     }
 
-    @Test
-    public void shouldThrowIllegalArgumentExceptionWhenOnNull() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> calculatorService.checkParams(null, null));
-    }
 
 }
