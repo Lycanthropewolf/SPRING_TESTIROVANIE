@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 
 public class CalculatorTest {
     private final Integer ILLEGAL_ARGUMENT = 0;
-    private final Integer NUM_1 = 2;
-    private final Integer NUM_2 = 10;
+    private final Integer NUM_1 = 6;
+    private final Integer NUM_2 = 14;
     private final CalculatorService calculatorService = new CalculatorService();
 
     @Test
@@ -43,5 +43,9 @@ public class CalculatorTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> calculatorService.divide(NUM_1, ILLEGAL_ARGUMENT));
     }
 
+    @Test
+    public void shouldThrowIllegalArgumentExceptionWhenOnNull() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> calculatorService.checkParams(null, null));
+    }
 
 }
