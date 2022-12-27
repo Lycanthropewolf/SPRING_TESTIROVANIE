@@ -9,33 +9,31 @@ public class CalculatorService {
     }
 
     public Integer plus(Integer a, Integer b) {
-        if (a == null || b == null) {
-            throw new IllegalArgumentException("ввведите параметры");
-        }
+        checkParams(a, b);
         return a + b;
     }
 
     public Integer minus(Integer a, Integer b) {
-        if (a == null || b == null) {
-            throw new IllegalArgumentException("ввведите параметры");
-        }
+        checkParams(a, b);
         return a - b;
     }
 
     public Integer multiply(Integer a, Integer b) {
-        if (a == null || b == null) {
-            throw new IllegalArgumentException("ввведите параметры");
-        }
+        checkParams(a, b);
         return a * b;
     }
 
     public double divide(Integer a, Integer b) {
-        if (a == null || b == null) {
-            throw new IllegalArgumentException("ввведите параметры");
-        }
+        checkParams(a, b);
         if (b == 0) {
             throw new IllegalArgumentException("на ноль делить нельзя");
         }
         return (double) a / b;
+    }
+
+    private void checkParams(Integer a, Integer b) {
+        if (a == null || b == null) {
+            throw new IllegalArgumentException("Введите параметры правильно");
+        }
     }
 }
